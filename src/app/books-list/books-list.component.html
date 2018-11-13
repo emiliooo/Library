@@ -1,13 +1,13 @@
-<app-search #booksearchRef ></app-search>
+<app-search (searchTxt) = "SearchedTxt($event)" ></app-search>
 
 <div class="container">
   <div class="row">
       <tbody>
-          <tr *ngFor="let book of books.items">
-            <td>{{book.volumeInfo.categories}}</td>
+          <tr *ngFor="let book of books">
+            <td>{{book.volumeInfo.subtitle}}</td>
             <td>{{book.volumeInfo.description}}</td>
             <td><button class="btn btn-info" >Szczegóły</button></td>
-            <td><button class="btn btn-danger"  >X</button></td>
+            <td><button class="btn btn-danger" >X</button></td>
           </tr>
      </tbody>
   </div>

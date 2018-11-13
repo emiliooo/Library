@@ -2,9 +2,9 @@
   <div class="row">
       <form class="search_input">
           <div class="form-group">
-            <input type="email" class="form-control" id="searchInput" [(ngModel)]="searchTxt" placeholder="Search book">
+            <input type="email" class="form-control" id="searchInput" [(ngModel)]="writeText" name="searchTxt" placeholder="Search book">
           </div>
-          <button type="submit" class="btn btn-primary">Search</button>
-        </form>
+          <button type="submit" class="btn btn-primary" (click)="SearchTxt()" >Search</button>
+      </form>
   </div>
 </div>
