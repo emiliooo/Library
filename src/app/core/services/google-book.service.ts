@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Book } from 'src/app/shared/book';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,8 @@ export class GoogleBookService {
   // public books: Book[];
   public pageSize = 10;
   public _page = 1;
-
+  public books: Book[];
+  public query = '';
 
   constructor(private httpClient: HttpClient) { }
 
@@ -20,11 +22,30 @@ export class GoogleBookService {
     return this._page * this.pageSize;
   }
 
-  searchBooks(queryTitle: string): Observable<any> {
-
-    return this.httpClient.get(`${this.api_path}?q=${queryTitle}&maxResults=${this.pageSize}&startIndex=${this.startIndex}`);
-
+  get TotalPages() {
+    try {
+      return Math.ceil(this.totalItems / this.pageSize);
+    } catch (e) {
+      console.log(e);
+      return 0;
+    }
   }
+
+  get page(): number {
+    return this._page;
+  }
+
+  set page(val: number) {
+    if (val !== this.page) {
+      this._page = val;
+      this.searchBooks(this.query);
+    }
+  }
+
+  searchBooks(queryTitle: string): Observable<any> {
+    return this.httpClient.get(`${this.api_path}?q=${queryTitle}&maxResults=${this.pageSize}&startIndex=${this.startIndex}`);
+  }
+
 
 
 

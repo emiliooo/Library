@@ -8,12 +8,13 @@ import { GoogleBookService } from '../core/services/google-book.service';
 })
 export class BooksListComponent implements OnInit, AfterViewInit {
 
-  constructor(private googleService: GoogleBookService) { }
+  constructor(private googleService: GoogleBookService ) { }
 
   searchTxt: any;
   public books: any;
 
   ngOnInit() {
+
   }
 
   ngAfterViewInit() {
@@ -26,8 +27,10 @@ export class BooksListComponent implements OnInit, AfterViewInit {
   }
 
   load() {
-        this.googleService.searchBooks(this.searchTxt).subscribe(res => {
+        this.googleService.searchBooks(this.searchTxt)
+        .subscribe(res => {
           this.books = res['items'];
+          console.log( res['items']);
         });
-  }
+   }
 }

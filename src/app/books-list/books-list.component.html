@@ -1,14 +1,29 @@
 <app-search (searchTxt) = "SearchedTxt($event)" ></app-search>
-
-<div class="container">
-  <div class="row">
-      <tbody>
-          <tr *ngFor="let book of books">
-            <td>{{book.volumeInfo.subtitle}}</td>
-            <td>{{book.volumeInfo.description}}</td>
-            <td><button class="btn btn-info" >Szczegóły</button></td>
-            <td><button class="btn btn-danger" >X</button></td>
-          </tr>
-     </tbody>
+<div class="card-container">
+    <div class="shadow card-content" *ngFor="let book of books">
+      <div class="row">
+        <div class="col">
+          <p >{{ book.volumeInfo.title}} </p>
+          <p >{{ book.volumeInfo.subTitle}} </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <p >{{ book.volumeInfo.authors }} - {{ book.volumeInfo.id }}</p>
+        </div>
+      </div>
+      <div class="row">
+          <div class="col">
+              <img [src] = "book.volumeInfo.imageLinks.thumbnail "  alt="picture"/>
+          </div>
+      </div>
+      <div class="row">
+          <div class="col">
+             <button type="button" class="btn btn-primary"> Details </button>
+          </div>
+      </div>
+    </div>
   </div>
-</div>
+ 
+  <app-pagination [page]="googleService.page" 
+                  [totalPage]="googleService.TotalPages"  >  </app-pagination>

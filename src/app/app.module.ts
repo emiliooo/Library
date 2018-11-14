@@ -7,6 +7,7 @@ import { LibraryComponent } from './library/library.component';
 import { HeaderComponent } from './core/header/header.component';
 import { SearchComponent } from './search/search.component';
 import { BooksListComponent } from './books-list/books-list.component';
+import { PaginationComponent } from './core/pagination/pagination.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { BooksListComponent } from './books-list/books-list.component';
     LibraryComponent,
     HeaderComponent,
     SearchComponent,
-    BooksListComponent
+    BooksListComponent,
+    PaginationComponent
   ],
   imports: [
     BrowserModule,
