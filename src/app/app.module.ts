@@ -8,6 +8,7 @@ import { HeaderComponent } from './core/header/header.component';
 import { SearchComponent } from './search/search.component';
 import { BooksListComponent } from './books-list/books-list.component';
 import { PaginationComponent } from './core/pagination/pagination.component';
+import { DetailsComponent } from './details/details.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { PaginationComponent } from './core/pagination/pagination.component';
     HeaderComponent,
     SearchComponent,
     BooksListComponent,
-    PaginationComponent
+    PaginationComponent,
+    DetailsComponent
   ],
   imports: [
     BrowserModule,

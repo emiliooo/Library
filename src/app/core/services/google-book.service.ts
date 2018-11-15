@@ -36,6 +36,7 @@ export class GoogleBookService {
   }
 
   set page(val: number) {
+    console.log(this.query);
     if (val !== this.page) {
       this._page = val;
       this.searchBooks(this.query);
@@ -43,7 +44,16 @@ export class GoogleBookService {
   }
 
   searchBooks(queryTitle: string): Observable<any> {
-    return this.httpClient.get(`${this.api_path}?q=${queryTitle}&maxResults=${this.pageSize}&startIndex=${this.startIndex}`);
+    if (this.query !== queryTitle) {
+      this._page = 1;
+    }
+
+    this.query = queryTitle;
+    return this.httpClient.get(`${this.api_path}?q=${this.query}&maxResults=${this.pageSize}&startIndex=${this.startIndex}`);
+  }
+
+  retrieveBook(bookId: string) {
+    return this.httpClient.get(`${this.api_path}/${bookId}`);
   }
 
 

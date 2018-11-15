@@ -25,5 +25,6 @@
     </div>
   </div>
  
-  <app-pagination [page]="googleService.page" 
-                  [totalPage]="googleService.TotalPages"  >  </app-pagination>
+  <app-pagination *ngIf="hide" [page]="googleService.page" 
+                 [totalPage]="googleService.TotalPages" 
+                 (changePage)="googleService.page = $event"  >  </app-pagination>

@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { GoogleBookService } from '../core/services/google-book.service';
 
 @Component({
@@ -6,31 +6,33 @@ import { GoogleBookService } from '../core/services/google-book.service';
   templateUrl: './books-list.component.html',
   styleUrls: ['./books-list.component.css']
 })
-export class BooksListComponent implements OnInit, AfterViewInit {
+export class BooksListComponent {
 
-  constructor(private googleService: GoogleBookService ) { }
+  constructor(private googleService: GoogleBookService) { }
 
   searchTxt: any;
   public books: any;
-
-  ngOnInit() {
-
-  }
-
-  ngAfterViewInit() {
-   // console.log(this.books);
-  }
+  hide = false;
 
   SearchedTxt(txt) {
+    if (txt !== '') {
       this.searchTxt = txt;
       this.load();
+      this.hide = true;
+    } else {
+      alert('its empty');
+    }
   }
 
   load() {
-        this.googleService.searchBooks(this.searchTxt)
-        .subscribe(res => {
-          this.books = res['items'];
-          console.log( res['items']);
-        });
-   }
+    this.googleService.searchBooks(this.searchTxt)
+      .subscribe(res => {
+        this.books = res['items'];
+        console.log(res['items']);
+      });
+
+
+}
+
+
 }
