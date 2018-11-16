@@ -28,11 +28,9 @@ export class BooksListComponent {
     this.googleService.searchBooks(this.searchTxt)
       .subscribe(res => {
         this.books = res['items'];
-        console.log(res['items']);
+        console.log(res);
       });
-
-
-}
+  }
 
 
 }

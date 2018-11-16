@@ -1,3 +1,40 @@
-<p>
-  details works!
-</p>
+<div class="card-container">
+  <div class="shadow card-content">
+    <div class="row">
+      <div class="col">
+        <h3> {{ book.volumeInfo.title}}</h3>
+        <p >{{ book.volumeInfo.subTitle}} </p>
+      </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <img [src] = "book.volumeInfo.imageLinks.thumbnail "  alt="picture"/>
+        </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <p > {{ book.volumeInfo.thumbnail }}</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <p > {{ book.volumeInfo.description }}</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <p > {{ book.volumeInfo.publishDate }}</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <p > {{ book.volumeInfo.publisher }}</p>
+      </div>
+    </div>
+    
+    <button type="button" class="btn btn-info" >Open in PDF</button>
+    <button type="button" class="btn btn-success" (click)="addBook(book)">Add to my library</button>
+  </div>
+</div>
+
+

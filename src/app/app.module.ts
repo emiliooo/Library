@@ -9,6 +9,7 @@ import { SearchComponent } from './search/search.component';
 import { BooksListComponent } from './books-list/books-list.component';
 import { PaginationComponent } from './core/pagination/pagination.component';
 import { DetailsComponent } from './details/details.component';
+import { AppRoutingModule } from './app-routing/app-routing.module';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { DetailsComponent } from './details/details.component';
   imports: [
     BrowserModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
