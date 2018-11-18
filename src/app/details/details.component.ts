@@ -12,7 +12,7 @@ import { Book } from '../shared/book';
 })
 export class DetailsComponent implements OnInit {
 
-  book: any;
+  book: {};
 
   constructor(private googleService: GoogleBookService,
     private libraryService: LibraryServiceService,
@@ -32,10 +32,7 @@ export class DetailsComponent implements OnInit {
   }
 
   addBook(book: Book) {
-    if (book) {
-      return this.libraryService.add(book);
-    }
-
+    this.libraryService.add(book);
   }
 
 
