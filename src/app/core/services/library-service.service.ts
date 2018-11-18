@@ -16,4 +16,8 @@ export class LibraryServiceService {
     console.log(this.books);
   }
 
+   AllBooks() {
+    return this.books;
+  }
+
 }

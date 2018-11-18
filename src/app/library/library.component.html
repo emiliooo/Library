@@ -1,4 +1,26 @@
-<p>
-  library works!
-</p>
-<app-books-list></app-books-list>
+
+<div class="card-container">
+  <div class="shadow card-content" *ngFor="let book of books">
+    <div class="row">
+      <div class="col">
+        <p >{{ book.volumeInfo.title}} </p>
+        <p >{{ book.volumeInfo.subTitle}} </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <p >{{ book.volumeInfo.authors }} - {{ book.volumeInfo.id }}</p>
+      </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <img [src] = "book.volumeInfo.imageLinks.thumbnail "  alt="picture"/>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+           <button type="button"  routerLink="/booklist/{{book.id}}" class="btn btn-primary"> Details </button>
+        </div>
+    </div>
+  </div>
+</div>
