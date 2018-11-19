@@ -9,15 +9,43 @@ export class LibraryServiceService {
   books: Book[] = [];
 
   constructor() { }
-  
+
 
   add(detail) {
-    this.books.push(detail);
-    console.log(this.books);
+     console.log( this.CheckDuplicate(detail) );
+      this.books.push(detail);
+      console.log(this.books);
   }
 
-   AllBooks() {
+  CheckDuplicate(book) {
+    for (let i = 0; i < this.books.length; i++) {
+      if (book.id === this.books[i].id) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+  }
+
+  remove(book) {
+    this.books.splice(this.IndexOf(book), 1);
+  }
+
+  checkBook(book) {
+    return this.IndexOf(book) !== -1;
+  }
+
+  AllBooks() {
     return this.books;
   }
+
+  IndexOf(book) {
+    for (let i = 0; i < this.books.length; i++) {
+      if (book.id === this.books[i].id) {
+        return i;
+      }
+    }
+  }
+
 
 }

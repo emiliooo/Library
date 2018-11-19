@@ -3,7 +3,7 @@
     <div class="shadow card-content" *ngFor="let book of books">
       <div class="row">
         <div class="col">
-          <p >{{ book.volumeInfo.title}} </p>
+          <!-- <p >{{ book.volumeInfo.title}} </p> -->
           <p >{{ book.volumeInfo.subTitle}} </p>
         </div>
       </div>
@@ -12,7 +12,15 @@
           <p >{{ book.volumeInfo.authors }} - {{ book.volumeInfo.id }}</p>
         </div>
       </div>
-      <div class="row">
+      <div class="row categories">
+        <div class="col">
+          <span  *ngFor="let category of book?.volumeInfo?.categories">
+              {{ category }}
+          </span>
+
+        </div>
+      </div>
+      <div class="row picture">
           <div class="col">
               <img [src] = "book.volumeInfo.imageLinks.thumbnail "  alt="picture"/>
           </div>

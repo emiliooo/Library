@@ -11,7 +11,6 @@ export class GoogleBookService {
   private api_path = 'https://www.googleapis.com/books/v1/volumes';
   public loading = false;
   public totalItems = 0;
-  // public books: Book[];
   public pageSize = 10;
   public _page = 1;
   public books: Book[];

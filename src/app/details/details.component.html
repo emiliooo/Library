@@ -31,9 +31,10 @@
         <p > {{ book.volumeInfo.publisher }}</p>
       </div>
     </div>
+
     
-    <button type="button" class="btn btn-info" >Open in PDF</button>
-    <button type="button" class="btn btn-success" (click)="addBook(book)">Add to my library</button>
+    <button  type="button" class="btn btn-success" (click)="addBook(book)">Add to my library</button>
+    <button  type="button" class="btn btn-success" (click)="removeBook(book)">Remove from library</button>
   </div>
 </div>
 

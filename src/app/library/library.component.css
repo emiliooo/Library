@@ -1,0 +1,13 @@
+.shadow.card-content {
+    margin: 40px;
+    padding: 22px;
+    width: 400px;
+    text-align: center;
+    display: inline-block;
+}
+.card-container {
+    text-align: center;
+}
+button{
+    margin:40px;
+}

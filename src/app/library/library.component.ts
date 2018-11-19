@@ -13,9 +13,18 @@ export class LibraryComponent implements OnInit {
 
   ngOnInit() {
     this.load();
+    this.checkIfempty();
+    localStorage.setItem('books', JSON.stringify(this.books));
+    console.log(localStorage.getItem('books'));
   }
 
   load() {
-   this.books = this.libraryService.AllBooks();
+    this.books = this.libraryService.AllBooks();
+  }
+
+  checkIfempty() {
+    if (this.books.length === 0) {
+      document.getElementsByClassName('card-container')[0].innerHTML = 'MY LIBRARY ITS EMPTY';
+    }
   }
 }
