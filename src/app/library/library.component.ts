@@ -8,7 +8,7 @@ import { Book } from '../shared/book';
   styleUrls: ['./library.component.css']
 })
 export class LibraryComponent implements OnInit {
-  books: Book[] = [];
+  books: any;
 
   constructor(private libraryService: LibraryServiceService) { }
   ngOnInit() {

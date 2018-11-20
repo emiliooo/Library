@@ -7,7 +7,7 @@ import { Book } from 'src/app/shared/book';
 export class LibraryServiceService implements OnInit {
 
   books: Book[] = localStorage.getItem('books') ? JSON.parse(localStorage.getItem('books')) : [];
-
+  
   constructor() { }
 
   ngOnInit() {
