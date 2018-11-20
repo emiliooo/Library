@@ -11,7 +11,7 @@ export class BooksListComponent {
   constructor(private googleService: GoogleBookService) { }
 
   searchTxt: any;
-  public books: any;
+  books = [];
   hide = false;
 
   SearchedTxt(txt) {
@@ -30,7 +30,6 @@ export class BooksListComponent {
         this.books = res['items'];
         console.log(res);
       });
+
+    }
   }
-
-
-}

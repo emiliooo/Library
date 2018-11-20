@@ -34,7 +34,7 @@ export class DetailsComponent implements OnInit {
 
   addBook(book: Book) {
     this.libraryService.add(book);
-    this.router.navigate(['/mylibrary']);
+    this.router.navigate(['/booklist']);
   }
 
   removeBook(book) {

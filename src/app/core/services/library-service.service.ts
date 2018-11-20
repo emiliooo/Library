@@ -1,34 +1,38 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { Book } from 'src/app/shared/book';
 
 @Injectable({
   providedIn: 'root'
 })
-export class LibraryServiceService {
+export class LibraryServiceService implements OnInit {
 
-  books: Book[] = [];
+  books: Book[] = localStorage.getItem('books') ? JSON.parse(localStorage.getItem('books')) : [];
 
   constructor() { }
 
+  ngOnInit() {
+  }
 
   add(detail) {
-     console.log( this.CheckDuplicate(detail) );
-      this.books.push(detail);
-      console.log(this.books);
+    this.books.push(detail);
+    localStorage.setItem('books', JSON.stringify(this.books));
   }
 
   CheckDuplicate(book) {
     for (let i = 0; i < this.books.length; i++) {
-      if (book.id === this.books[i].id) {
-        return true;
+      console.log(i);
+      console.log(this.books.length);
+      if (this.books[i].id === book.id) {
+        return ' taka sama';
       } else {
-        return false;
+        return 'brak takich samych';
       }
     }
   }
 
   remove(book) {
     this.books.splice(this.IndexOf(book), 1);
+    localStorage.setItem('books', JSON.stringify(this.books));
   }
 
   checkBook(book) {

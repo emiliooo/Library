@@ -9,13 +9,11 @@ import { Book } from '../shared/book';
 })
 export class LibraryComponent implements OnInit {
   books: Book[] = [];
-  constructor(private libraryService: LibraryServiceService) { }
 
+  constructor(private libraryService: LibraryServiceService) { }
   ngOnInit() {
     this.load();
     this.checkIfempty();
-    localStorage.setItem('books', JSON.stringify(this.books));
-    console.log(localStorage.getItem('books'));
   }
 
   load() {
