@@ -27,7 +27,7 @@ export class DetailsComponent implements OnInit {
     this.googleService.retrieveBook(id)
       .subscribe(res => {
         this.book = res;
-        console.log(res);
+        //console.log(res);
         }
       );
   }
@@ -44,6 +44,7 @@ export class DetailsComponent implements OnInit {
   }
 
   checkBook(book) {
+    console.log(this.libraryService.checkBook(book));
    return this.libraryService.checkBook(book);
   }
 

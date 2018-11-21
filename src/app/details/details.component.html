@@ -33,8 +33,8 @@
     </div>
 
     
-    <button  type="button" class="btn btn-success" (click)="addBook(book)">Add to my library</button>
-    <button  type="button" class="btn btn-success" (click)="removeBook(book)">Remove from library</button>
+    <button  *ngIf="checkBook(book)" type="button" class="btn btn-success" (click)="addBook(book)">Add to my library</button>
+    <button  *ngIf="!checkBook(book)" type="button" class="btn btn-success" (click)="removeBook(book)">Remove from library</button>
   </div>
 </div>
 

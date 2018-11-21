@@ -36,7 +36,7 @@ export class LibraryServiceService implements OnInit {
   }
 
   checkBook(book) {
-    return this.IndexOf(book) !== -1;
+    return this.IndexOf(book) === undefined;
   }
 
   AllBooks() {
