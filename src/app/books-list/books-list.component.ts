@@ -30,6 +30,5 @@ export class BooksListComponent {
         this.books = res['items'];
         console.log(res);
       });
-
     }
   }
