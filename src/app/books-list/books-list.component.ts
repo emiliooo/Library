@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { GoogleBookService } from '../core/services/google-book.service';
 
 @Component({
@@ -6,19 +6,20 @@ import { GoogleBookService } from '../core/services/google-book.service';
   templateUrl: './books-list.component.html',
   styleUrls: ['./books-list.component.css']
 })
-export class BooksListComponent {
+export class BooksListComponent{
 
   constructor(private googleService: GoogleBookService) { }
 
   searchTxt: any;
-  books = [];
   hide = false;
+  books = localStorage.getItem('booklist') ? JSON.parse(localStorage.getItem('booklist')) : [];
+ 
 
   SearchedTxt(txt) {
     if (txt !== '') {
       this.searchTxt = txt;
-      this.load();
       this.hide = true;
+      this.load();
     } else {
       alert('its empty');
     }
@@ -28,7 +29,14 @@ export class BooksListComponent {
     this.googleService.searchBooks(this.searchTxt)
       .subscribe(res => {
         this.books = res['items'];
-        console.log(res);
       });
-    }
+
+      setTimeout(() => {
+        localStorage.setItem('booklist', JSON.stringify(this.books));
+        this.books = JSON.parse(localStorage.getItem('booklist'));
+      }, 1000);
   }
+
+ 
+
+}
